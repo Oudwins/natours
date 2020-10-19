@@ -1,5 +1,6 @@
 const tours = require('../../preloads/tours');
-const deleteTour = (req, res) => {
+////////////////////////////////
+module.exports = (req, res) => {
   const id = parseInt(req.params.id);
   // checking if id is available
   if (id > tours.length)
@@ -12,8 +13,4 @@ const deleteTour = (req, res) => {
     status: 'success',
     data: null,
   });
-};
-
-module.exports = {
-  deleteTour,
 };
