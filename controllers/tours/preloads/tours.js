@@ -4,6 +4,8 @@ module.exports = (() => {
   let newpath = path.join(
     __dirname,
     '..',
+    '..',
+    '..',
     'dev-data',
     'data',
     'tours-simple.json'

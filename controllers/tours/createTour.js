@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
-const tours = require('../../preloads/tours');
+const tours = require('./preloads/tours');
 
 module.exports = (req, res) => {
   const newId = tours[tours.length - 1].id + 1;
-  const newTour = Object.assign({ id: newId }, req.body);
+  const newTour = { id: newId, ...req.body };
   tours.push(newTour);
   const newPath = path.join(
     __dirname,

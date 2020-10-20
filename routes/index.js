@@ -1,3 +1,1 @@
-const routes = require('../helpers/requireModulesR')(__dirname, 'subdirectory');
-
-module.exports = routes;
+module.exports = require('../helpers/requireModulesR')(__dirname);

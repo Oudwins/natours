@@ -5,17 +5,16 @@ const routers = require('./routes');
 // ! App
 const app = express();
 // !MIDDLEWARE -> 1st to make req.body available
-app.use(morgan('dev'));
+if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
+
 app.use(express.json());
+app.use(express.static(`${__dirname}/public`));
 
 // ! API ROUTES
-for (router in routers) {
-  app.use(routers[router].resourceURL, routers[router].router);
-}
-// Users Resource
+Object.values(routers).forEach((el) => app.use(el.resourceURL, el.router));
 
-// Server start
-const port = 3000;
-app.listen(port, () => {
-  console.log('Express server on port ' + port);
-});
+/* for (router in routers) {
+  app.use(routers[router].resourceURL, routers[router].router);
+} */
+
+module.exports = app;
