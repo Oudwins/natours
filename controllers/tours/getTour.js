@@ -1,11 +1,9 @@
-const tours = require('./preloads/tours');
-
 module.exports = (req, res) => {
-  const tour = tours.find((el) => el.id === req.URLid);
+  // Get Tour by ID from database
   res.status(200).json({
     status: 'success',
     data: {
-      tour,
+      message: 'placeholder',
     },
   });
 };
