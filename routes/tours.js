@@ -1,5 +1,6 @@
 const express = require('express');
 const controller = require('../controllers/tours');
+const middleware = require('../controllers/tours/middleware');
 
 const router = express.Router();
 //Importing middleware
@@ -7,6 +8,8 @@ const router = express.Router();
 
 // !ROUTES
 router.route('/').get(controller.getTours).post(controller.createTour);
+
+router.route('/top-5').get(middleware.aliasTopTours, controller.getTours);
 
 router
   .route('/:id')

@@ -13,8 +13,4 @@ app.use(express.static(`${__dirname}/public`));
 // ! API ROUTES
 Object.values(routers).forEach((el) => app.use(el.resourceURL, el.router));
 
-/* for (router in routers) {
-  app.use(routers[router].resourceURL, routers[router].router);
-} */
-
 module.exports = app;
