@@ -1,6 +1,4 @@
-module.exports = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined',
-  });
-};
+const User = require('../../models/usersModel');
+const getOne = require('../factory/getOne');
+
+module.exports = getOne(User);

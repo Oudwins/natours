@@ -1,6 +1,5 @@
-module.exports = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined',
-  });
-};
+const User = require('../../models/usersModel');
+const getAll = require('../factory/getAll');
+
+// THIS IS A ADMIN ONLY ROUTE.
+module.exports = getAll(User);
