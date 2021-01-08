@@ -5,7 +5,6 @@ const AppError = require('../../utilities/AppError');
 module.exports = catchAsync(async (req, res, next) => {
   const { distance, latlng, unit } = req.params;
   const [lat, lng] = latlng.split(',');
-  console.log(distance, lat, lng, unit);
   // create new error;
   if (!lat || !lng)
     return next(

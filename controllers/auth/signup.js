@@ -25,7 +25,6 @@ module.exports = catchAsync(async (req, res, next) => {
     role: process.env.NODE_ENV !== 'development' ? 'user' : role,
   });
   const url = `${req.protocol}://${req.get('host')}/me`;
-  console.log(url);
   await new Email(newUser, url).sendWelcome();
   createNsendToken(res, 201, newUser);
 });

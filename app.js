@@ -7,6 +7,8 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+// compress responses sent to client
+const compression = require('compression');
 // My Imports
 const routers = require('./routes');
 const AppError = require('./utilities/AppError');
@@ -57,6 +59,8 @@ app.use(
     ],
   })
 );
+// compress responses sent to client
+app.use(compression());
 // ! API ROUTES
 Object.values(routers).forEach((el) => app.use(el.resourceURL, el.router));
 // ! VIEWS ROUTES
