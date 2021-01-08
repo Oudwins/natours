@@ -30,7 +30,7 @@ mongoose
   });
 
 // Server start
-const server = app.listen(process.env.PORT);
+const server = app.listen(process.env.PORT || 3000);
 
 // !THIS HANDLES ALL ERRORS BORN OF ASYNC CODE IN NODEJS
 process.on('unhandledRejection', (err) => {
